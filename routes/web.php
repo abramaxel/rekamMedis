@@ -26,3 +26,6 @@ Route::get('/master', function () {
     return view('master');
 });
 
+Route::get('/detail', function () {
+    return view('detail');
+});
