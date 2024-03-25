@@ -8,6 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Tambahkan CSS kustom jika diperlukan -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <!-- Tambahkan Font Awesome CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 </head>
 <script type="text/javascript">
         
@@ -54,6 +57,47 @@
             alert("Request failed");
             };
         }
+
+        function getRekamMedis(){
+    // 1. Create a new XMLHttpRequest object
+    let xhr = new XMLHttpRequest();
+
+    // 2. Configure it: GET-request for the URL /rekam-medis
+    xhr.open('GET', 'http://localhost:8080/silk2024-slim-main/public/rekam-medis');
+
+    // 3. Send the request over the network
+    xhr.send();
+
+    // 4. This will be called after the response is received
+    xhr.onload = function() {
+        if (xhr.status != 200 && xhr.status != 201) {
+            alert(`Error ${xhr.status}: ${xhr.statusText}`);
+        } else {
+            let responseData = JSON.parse(xhr.responseText);
+            let outputTabel = document.getElementById("outputTabelRM");
+            let tbody = outputTabel.querySelector("tbody");
+
+            // Clear the tbody before adding new data
+            tbody.innerHTML = "";
+
+            // Loop through data and add new rows to the table
+            responseData.forEach(function(data) {
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${data.no_rm}</td>
+                    <td><a href="#" onclick="viewDetail('${data.no_rm}')">${data.nama_pasien}</td>
+                    <td>${data.deskripsi_tindakan}</td>
+                    <td>${data.nama_obat}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+    };
+
+    xhr.onerror = function() {
+        alert("Request failed");
+    };
+}
 
         function insertRekamMedis(){
         // Mengambil data dari form atau dari input pengguna

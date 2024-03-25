@@ -5,23 +5,21 @@
 @section('content')
 <div class="container">
     <h2>Daftar Pasien</h2>
-    <table class="table">
+    <table class="table" id="outputTabelRM">
         <thead>
             <tr>
-                <th scope="col">No.</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Tanggal Lahir</th>
-                <th scope="col">Diagnosis</th>
-                <th scope="col">Tinggi Badan (cm)</th>
-                <th scope="col">Berat Badan (kg)</th>
-                <th scope="col">Tensi</th>
-                <th scope="col">Dokter</th>
-                <th scope="col">Status Obat</th>
+                <th scope="col">No. Rekam Medis</th>
+                <th scope="col">Nama Pasien</th>
+                <th scope="col">Tindakan</th>
+                <th scope="col">Obat</th>
             </tr>
         </thead>
         <tbody>
-            
+            <!-- Data Pasien -->
+            <!-- Data Obat akan diisi menggunakan JavaScript -->
         </tbody>
     </table>
 </div>
+
+
 @endsection
