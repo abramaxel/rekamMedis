@@ -4,9 +4,9 @@
 
 @section('content')
 <div class="container">
-    <h2>Daftar Pasien</h2>
+    <h2>Detail Pasien</h2>
     <div class="table-responsive">
-        <table class="table table-bordered">
+        <table class="table" id="outputTableDetailPasien">
             <thead>
                 <tr>
                     <th>Nama</th>
@@ -25,10 +25,11 @@
                     <th>Alamat Kontak Keluarga</th>
                 </tr>
             </thead>
-            <tbody>
-                
+            <tbody id="outputTableDetailPasienBody">
+                <!-- Data pasien akan dimasukkan di sini oleh JavaScript -->
             </tbody>
         </table>
     </div>
 </div>
+
 @endsection

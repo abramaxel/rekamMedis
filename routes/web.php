@@ -26,6 +26,6 @@ Route::get('/master', function () {
     return view('master');
 });
 
-Route::get('/detail', function () {
-    return view('detail');
+Route::get('/detail/{no_rm}', function ($no_rm) {
+    return view('detail', ['no_rm' => $no_rm]);
 });
