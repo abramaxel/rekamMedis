@@ -35,7 +35,7 @@
 <div class="container">
     <h2>Form Pengisian Data Rekam Medis</h2>
     <form name="rekamMedis">
-        <div class="card" id="card-kosong">
+         <div class="card" id="card-kosong">
             <div class="card-body">
                 <div class="card-body">
                     <p>Tabel Obat</p>

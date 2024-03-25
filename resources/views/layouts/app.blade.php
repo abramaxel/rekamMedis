@@ -56,8 +56,89 @@
         }
 
         function insertRekamMedis(){
-            
+        // Mengambil data dari form atau dari input pengguna
+        let data = {
+            // Misalnya, jika Anda memiliki input dengan id 'inputId', Anda bisa mengambil nilai seperti ini:
+            id: document.getElementById('inputId').value,
+            sku: document.getElementById('inputSku').value,
+            label_catatan: document.getElementById('inputLabelCatatan').value,
+            jumlah: document.getElementById('inputJumlah').value
+        };
+
+        // Mengirim data ke server menggunakan XMLHttpRequest atau fetch API
+        // Pastikan untuk mengatur method, url, dan data yang akan dikirim sesuai dengan kebutuhan Anda
+        // Anda juga harus menangani respon dari server, misalnya menampilkan pesan sukses atau gagal
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://localhost:8080/silk2024-slim-main/public/obat');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(data));
+
+        xhr.onload = function() {
+            if (xhr.status === 200 || xhr.status === 201) {
+                alert('Data rekam medis berhasil ditambahkan!');
+                // Jika Anda ingin melakukan sesuatu setelah berhasil menambahkan data, Anda bisa menambahkannya di sini
+            } else {
+                alert('Terjadi kesalahan saat menambahkan data rekam medis.');
+            }
+        };
+
+        xhr.onerror = function() {
+            alert("Request failed");
+        };
+    }
+
+        function updateRekamMedis(id){
+            // Mendapatkan data yang ingin diupdate, mungkin dengan menampilkan form dengan data yang sudah ada
+            // Kemudian, setelah pengguna mengubah data dan menekan tombol update, Anda dapat mengirim data tersebut ke server untuk diupdate
+            // Pastikan untuk menangani respon dari server, misalnya menampilkan pesan sukses atau gagal
+            let dataToUpdate = {
+                id: id,
+                // Misalnya, jika Anda memiliki input dengan id 'inputIdUpdate', Anda bisa mengambil nilai seperti ini:
+                sku: document.getElementById('inputSkuUpdate').value,
+                label_catatan: document.getElementById('inputLabelCatatanUpdate').value,
+                jumlah: document.getElementById('inputJumlahUpdate').value
+            };
+
+            let xhr = new XMLHttpRequest();
+            xhr.open('PUT', 'http://localhost:8080/silk2024-slim-main/public/obat/' + id);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(dataToUpdate));
+
+            xhr.onload = function() {
+                if (xhr.status === 200 || xhr.status === 201) {
+                    alert('Data rekam medis berhasil diupdate!');
+                    // Jika Anda ingin melakukan sesuatu setelah berhasil mengupdate data, Anda bisa menambahkannya di sini
+                } else {
+                    alert('Terjadi kesalahan saat mengupdate data rekam medis.');
+                }
+            };
+
+            xhr.onerror = function() {
+                alert("Request failed");
+            };
         }
+
+        function deleteRekamMedis(id){
+            // Mengirim request ke server untuk menghapus data rekam medis dengan id tertentu
+            // Pastikan untuk menangani respon dari server, misalnya menampilkan pesan sukses atau gagal
+            let xhr = new XMLHttpRequest();
+            xhr.open('DELETE', 'http://localhost:8080/silk2024-slim-main/public/obat/' + id);
+            xhr.send();
+
+            xhr.onload = function() {
+                if (xhr.status === 200 || xhr.status === 204) {
+                    alert('Data rekam medis berhasil dihapus!');
+                    // Jika Anda ingin melakukan sesuatu setelah berhasil menghapus data, Anda bisa menambahkannya di sini
+                } else {
+                    alert('Terjadi kesalahan saat menghapus data rekam medis.');
+                }
+            };
+
+            xhr.onerror = function() {
+                alert("Request failed");
+            };
+        }
+
         window.onload = getObat;   
 </script>
 <body>
@@ -74,6 +155,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/rekam-medis">Pengisian Rekam Medis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/master">Daftar Pasien</a>
                     </li>
                     <!-- Tambahkan menu lainnya sesuai kebutuhan -->
                 </ul>

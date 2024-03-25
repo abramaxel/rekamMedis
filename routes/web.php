@@ -21,3 +21,7 @@ Route::get('/rekam-medis', function () {
     return view('rekamMedis');
 });
 
+Route::get('/master', function () {
+    return view('master');
+});
+
