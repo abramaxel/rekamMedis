@@ -35,7 +35,7 @@
 <div class="container">
     <h2>Form Pengisian Data Rekam Medis</h2>
     <form name="rekamMedis">
-         <div class="card" id="card-kosong">
+         {{-- <div class="card" id="card-kosong">
             <div class="card-body">
                 <div class="card-body">
                     <p>Tabel Obat</p>
@@ -54,7 +54,7 @@
                     </table>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="mb-3">
             <label for="no_rm" class="form-label">Nomor Rekam Medis</label>
             <input type="text" class="form-control" id="no_rm" placeholder="Masukkan nomor rekam medis">

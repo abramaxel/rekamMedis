@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Facade;
 
+
 return [
 
     /*
@@ -160,6 +161,7 @@ return [
          * Laravel Framework Service Providers...
          */
         Illuminate\Auth\AuthServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
         Illuminate\Cache\CacheServiceProvider::class,
@@ -210,6 +212,6 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'PDF' => Barryvdh\DomPDF\Facade\Pdf::class,
     ])->toArray(),
-
 ];

@@ -12,6 +12,7 @@
                 <th scope="col">Nama Pasien</th>
                 <th scope="col">Tindakan</th>
                 <th scope="col">Obat</th>
+                <th scope="col">Riwayat</th>
             </tr>
         </thead>
         <tbody>
